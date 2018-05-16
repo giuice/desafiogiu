@@ -1,0 +1,21 @@
+[
+  "test_crawler.py::test_getPageSoup_is_not_none",
+  "test_crawler.py::test_getPageSoup_is_none",
+  "test_crawler.py::test_getSafeLink_is_consistent",
+  "test_crawler.py::test_special_char_links_not_raise_error",
+  "test_crawler.py::test_getSelector_is_perfume_masculino",
+  "test_crawler.py::test_getSelector_name_product_page",
+  "test_crawler.py::test_getSelector_price_product_page",
+  "test_crawler.py::test_is_product_page_recognized_as_internal_link_pattern",
+  "test_product.py::test_product_hasProductItem",
+  "test_product.py::test_product_productAdded",
+  "test_product.py::test_add_new_product",
+  "test_product.py::test_add_new_productItem",
+  "test_product.py::test_check_priceSelector",
+  "test_product.py::test_check_titleSelector",
+  "test_product.py::test_product_saveProductItem",
+  "test_product.py::test_productsList_is_greather_than_zero",
+  "test_website.py::test_website_isTargetPage",
+  "test_website.py::test_website_isNotTargetPage",
+  "test_website.py::test_website_hastagSelector_title"
+]

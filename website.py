@@ -10,7 +10,7 @@ class Website:
             internalLinkPattern,
             targetPattern,
             titleSelector
-            ):
+    ):
         self.name = name
         self.url = url
         # r'https://www\.epocacosmeticos\.com\.br/.+')
@@ -23,4 +23,3 @@ class Website:
         if re.search(self.targetPattern, pageUrl):
             return True
         return False
-

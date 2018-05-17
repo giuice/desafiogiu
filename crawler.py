@@ -25,7 +25,6 @@ class Crawler:
         self.ctx.check_hostname = False
         self.ctx.verify_mode = ssl.CERT_NONE
         self.pageCount = 0
-       
 
     ''' Avoid errors in links with special chars '''
 
@@ -36,7 +35,7 @@ class Crawler:
         try:
             pageUrl = self.makeSafeLink(pageUrl)
             html = urlopen(pageUrl, context=self.ctx)
-            return BeautifulSoup(html, 'html.parser')
+            return BeautifulSoup(html, 'lxml')
         except (HTTPError, URLError) as error:
             print('Data of %s not retrieved in %s\nURL: %s', error, pageUrl)
         except timeout:
@@ -72,12 +71,14 @@ class Crawler:
                                         self.
                                         site.
                                         internalLinkPattern)):
-                if 'href' in link.attrs:
-                    if link.attrs['href'] not in self.pages:
+                attrib = link.attrs
+                if 'href' in attrib:
+                    href = attrib['href'] 
+                    if href not in self.pages and self.site.isAllowedUrl(href):
                         if self.pageCount > self.pageLimitToCrawl:
                             return
                         self.pageCount += 1
-                        newPage = link.attrs['href']
+                        newPage = href
                         print('-'*20)
                         print(pageUrl)
                         print(newPage)

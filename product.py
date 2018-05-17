@@ -22,6 +22,7 @@ class Product(Website):
             targetPattern,
             titleSelector)
         self.products = []
+        self.termsToExclude = []
         self.priceSelector = priceSelector
 
     def hasProductItem(self, product):
@@ -39,6 +40,13 @@ class Product(Website):
     def addProductItem(self, productItem):
         if productItem not in self.products:
             self.products.append(productItem)
+
+    def addTermToExclude(self, termToExclude):
+        if termToExclude not in self.termsToExclude:
+            self.termsToExclude.append(termToExclude)
+
+    def isAllowedUrl(self, url):
+        return not any(term in url for term in self.termsToExclude)
 
     def saveProductItem(self, productItem):
         file = open('logs/{}.csv'.format(self.name), 'a')

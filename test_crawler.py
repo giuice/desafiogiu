@@ -54,8 +54,8 @@ def test_getSelector_price_product_page(crawler):
     bs = crawler.getPageSoup(url)
     assert crawler.getSelector(bs, '.skuBestPrice') == 'R$ 47,90'
 
-def test_is_product_page_recognized_as_internal_link_pattern(crawler):
+
+def test_is_product_page_recognized_as_internal_link_pattern():
     p = re.compile(r'https://www\.epocacosmeticos\.com\.br/.+')
-    assert p.match('https://www.epocacosmeticos.com.br/pink-ice-eau-de-parfum-omerta-perfume-feminino/p')
-
-
+    assert p.match(
+        'https://www.epocacosmeticos.com.br/pink-ice-eau-de-parfum-omerta-perfume-feminino/p')

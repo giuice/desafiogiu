@@ -90,3 +90,31 @@ def test_product_saveProductItem(product, productItem, csv_file_name):
 
 def test_productsList_is_greather_than_zero(product):
     assert len(product.products) > 0
+
+def test_add_termToExclude(product):
+    term = 'PS=16'
+    product.addTermToExclude(term)
+    assert len(product.termsToExclude) > 0
+    assert product.termsToExclude[0] == term
+
+
+def test_if_url_is_allowed_to_scan(product):
+    term = 'PS=16'
+    product.addTermToExclude(term)
+    url = 'https://www.epocacosmeticos.com.br/perfumes/perfume-feminino/'
+    assert product.isAllowedUrl(url) == True
+
+def test_if_url_is_not_allowed_to_scan(product):
+    term = 'PS=16'
+    product.addTermToExclude(term)
+    url = 'https://www.epocacosmeticos.com.br/perfumes/perfume-feminino/agatha-ruiz-de-la-prada/Amadeirado?PS=16&map=c,c,b,specificationFilter_7'
+    assert product.isAllowedUrl(url) == False
+
+
+def test_if_is_not_allowed_multiple_terms(product):
+    product.addTermToExclude('PS=16')
+    product.addTermToExclude('/checkout/')
+    url = 'https://www.epocacosmeticos.com.br/perfumes/perfume-feminino/agatha-ruiz-de-la-prada/Amadeirado?PS=16&map=c,c,b,specificationFilter_7'
+    assert not product.isAllowedUrl(url)
+    url =  'https://www.epocacosmeticos.com.br/checkout/#/cart'
+    assert not product.isAllowedUrl(url)

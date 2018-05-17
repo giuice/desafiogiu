@@ -15,6 +15,10 @@
   "test_product.py::test_check_titleSelector",
   "test_product.py::test_product_saveProductItem",
   "test_product.py::test_productsList_is_greather_than_zero",
+  "test_product.py::test_add_termToExclude",
+  "test_product.py::test_if_url_is_allowed_to_scan",
+  "test_product.py::test_if_url_is_not_allowed_to_scan",
+  "test_product.py::test_if_is_not_allowed_multiple_terms",
   "test_website.py::test_website_isTargetPage",
   "test_website.py::test_website_isNotTargetPage",
   "test_website.py::test_website_hastagSelector_title"

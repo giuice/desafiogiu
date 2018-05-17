@@ -73,7 +73,7 @@ class Crawler:
                                         internalLinkPattern)):
                 attrib = link.attrs
                 if 'href' in attrib:
-                    href = attrib['href'] 
+                    href = attrib['href']
                     if href not in self.pages and self.site.isAllowedUrl(href):
                         if self.pageCount > self.pageLimitToCrawl:
                             return

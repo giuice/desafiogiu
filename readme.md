@@ -1,11 +1,11 @@
 # A Simple Crawler
 
-Um crawler simples e generico para varrer sites e salvar o nome, preço e url dos produtos 
+Um crawler simples e generico para varrer sites e salvar o nome, preço e url dos produtos
 
-## Getting Started
+# Getting Started
 
 Run the comand: python main.py ou
-#### Crie um Produto
+# Crie um Produto
 ``` python
 from crawler import Crawler
 from product import Product
@@ -18,7 +18,7 @@ from product import Product
             titleSelector,
             priceSelector '''
 product = Product('EpocaCosmeticos', 'https://www.epocacosmeticos.com.br', r'https://www\.epocacosmeticos\.com\.br/.+',
-                      r'^https://www.epocacosmeticos.com.br/.+/p$', 'meta[property="og:title"]', '.skuBestPrice')
+                  r'^https://www.epocacosmeticos.com.br/.+/p$', 'meta[property="og:title"]', '.skuBestPrice')
 
 # Adicione filtros que deseja excluir das url varridas: obs neste exemplo estes filtros não irão varrer todo o site.
 product.addTermToExclude('?PS=')
@@ -27,15 +27,15 @@ product.addTermToExclude('centralatendimento')
 
 # Finalmente crie o crawler
 crawler = Crawler(product)
-crawler.crawl('https://www.epocacosmeticos.com.br') 
+crawler.crawl('https://www.epocacosmeticos.com.br')
 
 ```
-Docker: 
+Docker:
 
-## TODO:
+    # TODO:
 + Achar uma maneira genérica de ler os paginadores
 
-### Algumas questões
+# Algumas questões
 
 
 + Agora você tem de capturar dados de outros 100 sites. Quais seriam suas estratégias para escalar a aplicação?
@@ -47,13 +47,11 @@ Docker:
 + Um cliente liga reclamando que está fazendo muitos acessos ao seu site e aumentando seus custos com infra. Como resolveria esse problema?
 
 
-## Running the tests
+# Running the tests
 
 Just command line: 'python -m pytest'
 
 
+# Authors
 
-## Authors
-
-* **Giuliano Lemes** - *website* - [Giuice Creative Solutions](http://www.giuice.com)
-
+* **Giuliano Lemes ** - *website * - [Giuice Creative Solutions](http: // www.giuice.com)
